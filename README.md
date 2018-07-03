@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Heroku deployement.
+
+Heroku create
+
+Heroku login
+
