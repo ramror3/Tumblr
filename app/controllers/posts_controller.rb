@@ -12,11 +12,21 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		
-		if @post.save
-		redirect_to @post
-		else
-		render 'new'
-		end
+		# if @post.save
+		# redirect_to @post
+		# else
+		# render 'new'
+		# end
+# byebug
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { head :ok }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
 	end	
 
 	def show

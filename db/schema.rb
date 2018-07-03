@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180527153751) do
+ActiveRecord::Schema.define(version: 20180618063813) do
 
   create_table "comments", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(version: 20180527153751) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "superheros", force: :cascade do |t|
+    t.string "name"
+    t.string "super_name"
+    t.text "search"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "superpowers", force: :cascade do |t|
+    t.integer "superhero_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["superhero_id"], name: "index_superpowers_on_superhero_id"
   end
 
   create_table "users", force: :cascade do |t|
